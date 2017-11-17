@@ -16,20 +16,13 @@
  */
 package nl.tjonahen.test4java;
 
-import org.junit.Assert;
-import org.junit.Test;
+import cucumber.api.junit.Cucumber;
+import org.junit.runner.RunWith;
 
 /**
  *
  * @author Philippe Tjon - A - Hen philippe@tjonahen.nl
  */
-public class DeveloperTest {
-
-    @Test
-    public void testWriteCode() {
-        Developer sut = new Developer();
-        
-        Assert.assertEquals("Code, code, code, code, code, code, code", sut.writeCode());
-    }
-    
+@RunWith(Cucumber.class)
+public class CucumberTest {
 }
