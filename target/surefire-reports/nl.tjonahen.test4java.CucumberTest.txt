@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: nl.tjonahen.test4java.CucumberTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 4.573 sec <<< FAILURE!
+Then We recieve money(Scenario: Secondment)  Time elapsed: 0.004 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[0]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at nl.tjonahen.test4java.steps.SecondmentStepdefs.lambda$new$2(SecondmentStepdefs.java:68)
+	at ?.Then We recieve money(nl/tjonahen/test4java/secondment.feature:6)
+
+Scenario: Secondment  Time elapsed: 0.004 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[0]> but was:<[]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at nl.tjonahen.test4java.steps.SecondmentStepdefs.lambda$new$2(SecondmentStepdefs.java:68)
+	at ?.Then We recieve money(nl/tjonahen/test4java/secondment.feature:6)
+

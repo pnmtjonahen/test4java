@@ -35,34 +35,33 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(classes = {TestConfiguration.class, CitrusSpringConfig.class})
 public class SecondmentStepdefs implements En {
 
-    private Company ordina;
+    private String devName;
     private String result;
 
     @CitrusResource
     private TestDesigner designer;
 
     public SecondmentStepdefs() {
-        Given("^A company with a java developer \"([^\"]*)\"$", (String developer) -> {
-            designer.variable("name", developer);
-            ordina = new Company(new JavaDeveloper(developer));
+        Given("^A company with a java developer \"([^\"]*)\"$", (String devName) -> {
+            this.devName = devName;
 
         });
 
-        When("^We send the developer on a job at \"([^\"]*)\"$", (String company) -> {
+        When("^We send the developer on a job at \"([^\"]*)\"$", (String jobName) -> {
             designer.http()
                     .server("jobHttpServer")
                     .receive()
-                    .post("/" + company)
+                    .post("/" + jobName)
                     .payload("{\"name\":\"${name}\"")
                     .contentType("application/json");
+            
             designer.http().server("jobHttpServer")
                     .send()
                     .response(HttpStatus.OK)
-                    .payload("0")
-                    .version("HTTP/1.1")
-                    .contentType("application/text");
+                    .payload("0");
 
-            result = ordina.send(new Contractory(company));
+            Company ordina = new Company(new JavaDeveloper(devName));
+            result = ordina.send(new Contractory(jobName));
         });
 
         Then("^We recieve money$", () -> {
