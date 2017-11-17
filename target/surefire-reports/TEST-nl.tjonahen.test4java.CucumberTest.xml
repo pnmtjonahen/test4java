@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="nl.tjonahen.test4java.DeveloperTest" time="0" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="nl.tjonahen.test4java.CucumberTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/opt/jdk1.8.0_112/jre/lib/amd64"/>
@@ -61,5 +61,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="nl.tjonahen.test4java.DeveloperTest" name="testWriteCode" time="0"/>
+  <testcase classname="Scenario: Test my stuff" name="Given I am a java developeer" time="0.002"/>
+  <testcase classname="Scenario: Test my stuff" name="When I write code" time="0"/>
+  <testcase classname="Scenario: Test my stuff" name="Then I want it tested" time="0"/>
+  <testcase classname="Scenario: Test my stuff" name="Scenario: Test my stuff" time="0"/>
 </testsuite>
