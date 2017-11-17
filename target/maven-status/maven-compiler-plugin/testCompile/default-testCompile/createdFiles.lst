@@ -1,2 +1,5 @@
+nl/tjonahen/test4java/SecondmentIT.class
+nl/tjonahen/test4java/steps/SecondmentStepdefs.class
 nl/tjonahen/test4java/steps/DeveloperStepdefs.class
+nl/tjonahen/test4java/TestConfiguration.class
 nl/tjonahen/test4java/DeveloperTest.class

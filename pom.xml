@@ -11,12 +11,51 @@
         
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <citrus.version>2.7.2</citrus.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>1.19.4</version>
+        </dependency>
+
+        <!--test dependencies-->
+        <dependency>
+            <groupId>com.consol.citrus</groupId>
+            <artifactId>citrus-http</artifactId>
+            <version>${citrus.version}</version>
+            <scope>test</scope>
+        </dependency>              
+        <dependency>
+            <groupId>com.consol.citrus</groupId>
+            <artifactId>citrus-cucumber</artifactId>
+            <version>${citrus.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.consol.citrus</groupId>
+            <artifactId>citrus-core</artifactId>
+            <version>${citrus.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.consol.citrus</groupId>
+            <artifactId>citrus-java-dsl</artifactId>
+            <version>${citrus.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-spring</artifactId>
+            <version>1.2.5</version>
+            <scope>test</scope>
+        </dependency>        
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>1.2.5</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
@@ -41,7 +80,11 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-        
+            <plugin>
+                <groupId>com.consol.citrus.mvn</groupId>
+                <artifactId>citrus-maven-plugin</artifactId>
+                <version>${citrus.version}</version>
+            </plugin>        
         </plugins>   
     </build>
 </project>
