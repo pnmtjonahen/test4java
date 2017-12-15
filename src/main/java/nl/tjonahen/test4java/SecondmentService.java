@@ -17,34 +17,22 @@
 
 package nl.tjonahen.test4java;
 
-import java.util.Map;
-import java.util.TreeMap;
-
 /**
  *
  * @author Philippe Tjon - A - Hen
  */
-public class Company {
-    private final String name;
-    private final Map<String, JavaDeveloper> developers = new TreeMap<>();
+public class SecondmentService {
+
     
-    public Company(String name) {
-        this.name = name;
+    void addCompany(String companyName) {
     }
 
-    public String getName() {
-        return name;
-    }
-    
-    public void addDeveloper(JavaDeveloper developer) {
-        developers.put(developer.getName(), developer);
-    }
-    
-    public JavaDeveloper getDeveloper(String name) {
-        return developers.get(name);
+    Company getCompany(String company) {
+        return new Company(company);
     }
 
-    JavaDeveloper getDeveloper(JavaDeveloper developer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    String getEarnings(String company) {
+        return "0";
     }
+
 }

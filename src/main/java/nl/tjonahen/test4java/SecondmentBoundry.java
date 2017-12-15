@@ -16,6 +16,7 @@
  */
 package nl.tjonahen.test4java;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -28,6 +29,8 @@ import javax.ws.rs.PathParam;
 @Path("secondment")
 public class SecondmentBoundry {
 
+    @Inject
+    private SecondmentService secondmentService;
     /**
      * add new company to the system
      *
@@ -36,7 +39,7 @@ public class SecondmentBoundry {
     @POST
     @Path("/company")
     public void addCompany(String companyName) {
-        // add new company, use name as id
+        secondmentService.addCompany(companyName);
     }
 
     /**
@@ -47,7 +50,7 @@ public class SecondmentBoundry {
     @POST
     @Path("/company/{company}")
     public void addDeveloper(@PathParam("company") String company, String name) {
-        // find the company and add a new java developer 
+        secondmentService.getCompany(company).addDeveloper(new JavaDeveloper(name)); 
     }
 
     /**
@@ -58,8 +61,7 @@ public class SecondmentBoundry {
     @GET
     @Path("/company/{company}/earnings")
     public String getEarnings(@PathParam("company") String company) {
-        // find the company and get its earninsg
-        return "0";
+        return secondmentService.getEarnings(company);
     }
 
     /**
@@ -71,9 +73,9 @@ public class SecondmentBoundry {
     @POST
     @Path("/job/{company}/developer/{developer}")
     public void sendDeveloperOnJob(@PathParam("company") String company, @PathParam("developer") String developer, String contractor) {
-        // send the developer of company to the contractor
-        // company.getDeveloper(developer);
-        // 
+        final JavaDeveloper javaDeveloper = secondmentService.getCompany(company).getDeveloper(developer);
+        
+        
     }
 
 }
