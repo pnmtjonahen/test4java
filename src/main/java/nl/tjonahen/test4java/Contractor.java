@@ -14,34 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package nl.tjonahen.test4java.steps;
 
-import cucumber.api.java8.En;
-
-import nl.tjonahen.test4java.Developer;
-import org.junit.Assert;
+package nl.tjonahen.test4java;
 
 /**
  *
  * @author Philippe Tjon - A - Hen
  */
-public class DeveloperStepdefs implements En {
+public class Contractor {
 
-    private Developer sut;
-    private String result;
-    
-    public DeveloperStepdefs() {
-        Given("^I am a java developeer$", () -> {
-            sut = new Developer();
-        });
-
-        When("^I write code$", () -> {
-            result = sut.writeCode();
-        });
-
-        Then("^I want it tested$", () -> {
-            Assert.assertEquals("Code, code, code, code, code, code, code", result);
-        });
+    private final String name;
+    public Contractor(String name) {
+        this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+    
+    
 
 }

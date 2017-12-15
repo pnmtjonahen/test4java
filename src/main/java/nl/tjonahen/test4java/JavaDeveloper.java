@@ -14,15 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package nl.tjonahen.test4java;
 
-import cucumber.api.junit.Cucumber;
-import org.junit.runner.RunWith;
+package nl.tjonahen.test4java;
 
 /**
  *
- * @author Philippe Tjon - A - Hen philippe@tjonahen.nl
+ * @author Philippe Tjon - A - Hen
  */
-@RunWith(Cucumber.class)
-public class CucumberTest {
+public class JavaDeveloper {
+
+    private final String name;
+    public JavaDeveloper(final String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
+    
+
 }
