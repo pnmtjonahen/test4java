@@ -43,7 +43,6 @@ public class Company {
         if (response.getStatus() != 200) {
             throw new RuntimeException("HTTP Response: " + response.getStatus());
         }
-        
         return response.getEntity(String.class);
 
     }

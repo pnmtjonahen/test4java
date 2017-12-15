@@ -16,10 +16,6 @@
  */
 package nl.tjonahen.test4java;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -35,8 +31,8 @@ public class DeveloperTest {
      */
     @Test
     public void testWriteCode() {
-        Developer instance = new Developer();
-        assertEquals("Code, code, code, code, code, code, code", instance.writeCode());
+        Developer sut = new Developer();
+        assertEquals("Code, code, code, code, code, code, code", sut.writeCode());
     }
     
 }
