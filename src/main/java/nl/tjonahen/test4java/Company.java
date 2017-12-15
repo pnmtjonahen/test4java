@@ -27,6 +27,7 @@ import java.util.TreeMap;
 public class Company {
     private final String name;
     private final Map<String, JavaDeveloper> developers = new TreeMap<>();
+    private String earnings;
     
     public Company(String name) {
         this.name = name;
@@ -47,4 +48,13 @@ public class Company {
     JavaDeveloper getDeveloper(JavaDeveloper developer) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    void setEarnings(String earnings) {
+        this.earnings = earnings;
+    }
+
+    public String getEarnings() {
+        return earnings;
+    }
+    
 }

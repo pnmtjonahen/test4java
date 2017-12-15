@@ -22,14 +22,14 @@ package nl.tjonahen.test4java;
  */
 public class JavaDeveloper {
 
-    private final String name;
+    private String name;
 
-    public JavaDeveloper(final String name) {
-        this.name = name;
-    }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }

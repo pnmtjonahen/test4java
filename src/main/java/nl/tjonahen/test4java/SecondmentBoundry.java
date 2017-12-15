@@ -50,7 +50,9 @@ public class SecondmentBoundry {
     @POST
     @Path("/company/{company}")
     public void addDeveloper(@PathParam("company") String company, String name) {
-        secondmentService.getCompany(company).addDeveloper(new JavaDeveloper(name)); 
+        final JavaDeveloper javaDeveloper = new JavaDeveloper();
+        javaDeveloper.setName(name);
+        secondmentService.getCompany(company).addDeveloper(javaDeveloper); 
     }
 
     /**
@@ -74,7 +76,8 @@ public class SecondmentBoundry {
     @Path("/job/{company}/developer/{developer}")
     public void sendDeveloperOnJob(@PathParam("company") String company, @PathParam("developer") String developer, String contractor) {
         final JavaDeveloper javaDeveloper = secondmentService.getCompany(company).getDeveloper(developer);
-        
+        final Job job = new Job();
+        secondmentService.getCompany(company).setEarnings(job.send(javaDeveloper, new Contractor(contractor)));
         
     }
 
