@@ -16,9 +16,12 @@
  */
 package nl.tjonahen.test4java;
 
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -29,21 +32,22 @@ public class Company {
     private final Client client;
     private final JavaDeveloper javaDeveloper;
     public Company(final JavaDeveloper javaDeveloper) {
-        this.client = Client.create();
+        this.client = ClientBuilder.newClient();
         this.javaDeveloper = javaDeveloper;
     }
 
     public String send(final Contractory contractor) {
         
-        final WebResource webResource = this.client.resource("http://localhost:8888/"+contractor.getName());
+        final WebTarget wegTarget = this.client
+                                            .target("http://localhost:8888/{contractor}")
+                                            .resolveTemplate("contractor", contractor.getName());
         
-        final String inputData = String.format("{\"name\":\"%s\"}", this.javaDeveloper.getName());
         
-        final ClientResponse response = webResource.type("application/json").post(ClientResponse.class, inputData);
+        final Response response = wegTarget.request("application/json").post(Entity.json(this.javaDeveloper), Response.class);
         if (response.getStatus() != 200) {
             throw new RuntimeException("HTTP Response: " + response.getStatus());
         }
-        return response.getEntity(String.class);
+        return response.readEntity(String.class);
 
     }
 
