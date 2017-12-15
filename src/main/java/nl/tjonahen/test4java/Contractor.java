@@ -21,10 +21,10 @@ package nl.tjonahen.test4java;
  *
  * @author Philippe Tjon - A - Hen
  */
-public class Contractory {
+public class Contractor {
 
     private final String name;
-    public Contractory(String name) {
+    public Contractor(String name) {
         this.name = name;
     }
 

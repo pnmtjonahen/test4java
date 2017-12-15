@@ -36,7 +36,7 @@ public class Company {
         this.javaDeveloper = javaDeveloper;
     }
 
-    public String send(final Contractory contractor) {
+    public String send(final Contractor contractor) {
         
         final WebTarget wegTarget = this.client
                                             .target("http://localhost:8888/{contractor}")

@@ -20,7 +20,7 @@ import com.github.tomakehurst.wiremock.client.WireMock;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import cucumber.api.java8.En;
 import nl.tjonahen.test4java.Company;
-import nl.tjonahen.test4java.Contractory;
+import nl.tjonahen.test4java.Contractor;
 import nl.tjonahen.test4java.JavaDeveloper;
 import org.junit.Assert;
 
@@ -50,7 +50,7 @@ public class SecondmentStepdefs implements En {
 
             Company ordina = new Company(new JavaDeveloper(devName));
 
-            result = ordina.send(new Contractory(jobName));
+            result = ordina.send(new Contractor(jobName));
         });
 
         Then("^We recieve money$", () -> {
