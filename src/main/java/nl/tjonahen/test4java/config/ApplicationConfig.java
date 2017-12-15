@@ -15,32 +15,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package nl.tjonahen.test4java;
+package nl.tjonahen.test4java.config;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.Set;
+import javax.ws.rs.core.Application;
 
 /**
  *
  * @author Philippe Tjon - A - Hen
  */
-public class Company {
-    private final String name;
-    private final Map<String, JavaDeveloper> developers = new TreeMap<>();
-    
-    public Company(String name) {
-        this.name = name;
+@javax.ws.rs.ApplicationPath("api")
+public class ApplicationConfig extends Application {
+
+    @Override
+    public Set<Class<?>> getClasses() {
+        Set<Class<?>> resources = new java.util.HashSet<>();
+        addRestResourceClasses(resources);
+        return resources;
     }
 
-    public String getName() {
-        return name;
+    /**
+     * Do not modify addRestResourceClasses() method.
+     * It is automatically populated with
+     * all resources defined in the project.
+     * If required, comment out calling this method in getClasses().
+     */
+    private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(nl.tjonahen.test4java.SecondmentBoundry.class);
     }
-    
-    public void addDeveloper(JavaDeveloper developer) {
-        developers.put(developer.getName(), developer);
-    }
-    
-    public JavaDeveloper getDeveloper(String name) {
-        return developers.get(name);
-    }
+
 }

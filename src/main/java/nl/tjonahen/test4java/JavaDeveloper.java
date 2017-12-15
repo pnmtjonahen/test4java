@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package nl.tjonahen.test4java;
 
 /**
@@ -24,6 +23,7 @@ package nl.tjonahen.test4java;
 public class JavaDeveloper {
 
     private final String name;
+
     public JavaDeveloper(final String name) {
         this.name = name;
     }
@@ -31,7 +31,5 @@ public class JavaDeveloper {
     public String getName() {
         return name;
     }
-    
-    
 
 }

@@ -14,33 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package nl.tjonahen.test4java;
 
-import java.util.Map;
-import java.util.TreeMap;
+import cucumber.api.junit.Cucumber;
+import org.junit.runner.RunWith;
 
 /**
  *
- * @author Philippe Tjon - A - Hen
+ * @author Philippe Tjon - A - Hen philippe@tjonahen.nl
  */
-public class Company {
-    private final String name;
-    private final Map<String, JavaDeveloper> developers = new TreeMap<>();
-    
-    public Company(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-    
-    public void addDeveloper(JavaDeveloper developer) {
-        developers.put(developer.getName(), developer);
-    }
-    
-    public JavaDeveloper getDeveloper(String name) {
-        return developers.get(name);
-    }
+@RunWith(Cucumber.class)
+public class CucumberTest {
 }

@@ -31,7 +31,6 @@ public class Contractor {
     public String getName() {
         return name;
     }
-    
-    
+
 
 }

@@ -14,33 +14,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package nl.tjonahen.test4java.stepdefs;
 
-package nl.tjonahen.test4java;
+import cucumber.api.java8.En;
 
-import java.util.Map;
-import java.util.TreeMap;
+import nl.tjonahen.test4java.Developer;
+import org.junit.Assert;
 
 /**
  *
  * @author Philippe Tjon - A - Hen
  */
-public class Company {
-    private final String name;
-    private final Map<String, JavaDeveloper> developers = new TreeMap<>();
+public class DeveloperStepdefs implements En {
+
+    private Developer sut;
+    private String result;
     
-    public Company(String name) {
-        this.name = name;
+    public DeveloperStepdefs() {
+        Given("^I am a java developeer$", () -> {
+            sut = new Developer();
+        });
+
+        When("^I write code$", () -> {
+            result = sut.writeCode();
+        });
+
+        Then("^I want it tested$", () -> {
+            Assert.assertEquals("Code, code, code, code, code, code, code", result);
+        });
     }
 
-    public String getName() {
-        return name;
-    }
-    
-    public void addDeveloper(JavaDeveloper developer) {
-        developers.put(developer.getName(), developer);
-    }
-    
-    public JavaDeveloper getDeveloper(String name) {
-        return developers.get(name);
-    }
 }
