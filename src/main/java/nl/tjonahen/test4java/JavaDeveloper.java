@@ -14,22 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package nl.tjonahen.test4java;
 
-import org.junit.Assert;
-import org.junit.Test;
+package nl.tjonahen.test4java;
 
 /**
  *
- * @author Philippe Tjon - A - Hen philippe@tjonahen.nl
+ * @author Philippe Tjon - A - Hen
  */
-public class DeveloperTest {
+public class JavaDeveloper {
 
-    @Test
-    public void testWriteCode() {
-        Developer sut = new Developer();
-        
-        Assert.assertEquals("Code, code, code, code, code, code, code", sut.writeCode());
+    private final String name;
+    public JavaDeveloper(final String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
     
+    
+
 }
