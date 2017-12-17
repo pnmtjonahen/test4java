@@ -17,22 +17,27 @@
 
 package nl.tjonahen.test4java;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 /**
  *
  * @author Philippe Tjon - A - Hen
  */
 public class SecondmentService {
 
+    public Map<String, Company> companies = new TreeMap<>();
     
     void addCompany(String companyName) {
+        companies.put(companyName, new Company(companyName));
     }
 
     Company getCompany(String company) {
-        return new Company(company);
+        return companies.get(company);
     }
 
     String getEarnings(String company) {
-        return "0";
+        return getCompany(company).getEarnings();
     }
 
 }
