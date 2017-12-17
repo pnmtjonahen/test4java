@@ -1,0 +1,14 @@
+{
+  "controls": false,
+  "mouseWheel": true,
+  "slideNumber": true,
+  "presenterNotes": false,
+  "center": false,
+  "progress": true,
+  "history": true,
+  "theme": "white",
+  "template": "ordina",
+  "transition": "none",
+  "disableChalkboard": false,
+  "readOnlyChalkboard": false
+}
