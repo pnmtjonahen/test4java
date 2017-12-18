@@ -17,37 +17,31 @@
 package nl.tjonahen.test4java;
 
 import com.github.tomakehurst.wiremock.client.WireMock;
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.containing;
-import static com.github.tomakehurst.wiremock.client.WireMock.post;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import cucumber.runtime.arquillian.CukeSpace;
-import cucumber.runtime.arquillian.api.Features;
+import static io.restassured.RestAssured.given;
+import io.restassured.http.ContentType;
 import java.io.File;
-import javax.inject.Inject;
+import java.net.URL;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
  *
  * @author Philippe Tjon - A - Hen
  */
-@RunWith(CukeSpace.class)
-@Features({"src/test/resources/nl/tjonahen/test4java/secondment.feature"})
-public class SecondmentTest {
+@RunWith(Arquillian.class)
+public class SecondmentIT {
 
     private static final String A_COMPANY = "ACompany";
     private static final String WEBAPP_SRC = "src/main/webapp";
 
     private String devName;
-    private final WireMock wiremock = new WireMock(8888);    
+    private final WireMock wiremock = new WireMock(8888);
 
     @Deployment
     public static WebArchive createDeployment() {
@@ -63,29 +57,18 @@ public class SecondmentTest {
                 .addAsLibraries(files);
     }
 
-    @Inject
-    private SecondmentBoundry boundry;
+    @ArquillianResource
+    private URL contextPath;
 
-    @Given("^A company with a java developer \"([^\"]*)\"$")
-    public void a_company_with_a_java_developer(String devName) throws Throwable {
-        boundry.addCompany(A_COMPANY);
-        boundry.addDeveloper(A_COMPANY, devName);
-        this.devName = devName;
+    @Test
+    public void testAddCompany() {
+        given()
+                .body("{\"companyName\":\"aCompany\" }")
+                .contentType(ContentType.JSON)
+                .post(contextPath.toExternalForm() + "/company")
+                .then()
+                .statusCode(201);
+
     }
 
-    @When("^We send the developer on a job at \"([^\"]*)\"$")
-    public void we_send_the_developer_on_a_job_at(String jobName) throws Throwable {
-            wiremock.register(post(urlEqualTo("/"+jobName))
-                    .withRequestBody(containing(devName))
-                    .willReturn(aResponse()
-                            .withStatus(200)
-                            .withBody("0")));
-
-        boundry.sendDeveloperOnJob(A_COMPANY, this.devName, jobName);
-    }
-
-    @Then("^We recieve money$")
-    public void we_recieve_money() throws Throwable {
-        assertEquals("0", boundry.getEarnings(A_COMPANY));
-    }
 }
