@@ -19,17 +19,19 @@ package nl.tjonahen.test4java;
 
 import java.util.Map;
 import java.util.TreeMap;
+import javax.inject.Singleton;
 
 /**
  *
  * @author Philippe Tjon - A - Hen
  */
+@Singleton
 public class SecondmentService {
 
     public Map<String, Company> companies = new TreeMap<>();
     
-    void addCompany(String companyName) {
-        companies.put(companyName, new Company(companyName));
+    void addCompany(Company company) {
+        companies.put(company.getName(), company);
     }
 
     Company getCompany(String company) {

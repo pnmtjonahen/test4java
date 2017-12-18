@@ -25,17 +25,19 @@ import java.util.TreeMap;
  * @author Philippe Tjon - A - Hen
  */
 public class Company {
-    private final String name;
+    private String name;
     private final Map<String, JavaDeveloper> developers = new TreeMap<>();
     private String earnings;
     
-    public Company(String name) {
-        this.name = name;
-    }
 
     public String getName() {
         return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     
     public void addDeveloper(JavaDeveloper developer) {
         developers.put(developer.getName(), developer);

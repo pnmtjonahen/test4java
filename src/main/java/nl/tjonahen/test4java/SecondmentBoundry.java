@@ -17,16 +17,18 @@
 package nl.tjonahen.test4java;
 
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
  * @author Philippe Tjon - A - Hen
  */
-@Path("secondment")
+@Path("/secondment")
 public class SecondmentBoundry {
 
     @Inject
@@ -38,20 +40,19 @@ public class SecondmentBoundry {
      */
     @POST
     @Path("/company")
-    public void addCompany(String companyName) {
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public void addCompany(Company companyName) {
         secondmentService.addCompany(companyName);
     }
 
     /**
      * Add a developer to a company
      * @param company the company
-     * @param name the developer
+     * @param javaDeveloper the developer
      */
     @POST
     @Path("/company/{company}")
-    public void addDeveloper(@PathParam("company") String company, String name) {
-        final JavaDeveloper javaDeveloper = new JavaDeveloper();
-        javaDeveloper.setName(name);
+    public void addDeveloper(@PathParam("company") String company, JavaDeveloper javaDeveloper) {
         secondmentService.getCompany(company).addDeveloper(javaDeveloper); 
     }
 
@@ -74,10 +75,10 @@ public class SecondmentBoundry {
      */
     @POST
     @Path("/job/{company}/developer/{developer}")
-    public void sendDeveloperOnJob(@PathParam("company") String company, @PathParam("developer") String developer, String contractor) {
+    public void sendDeveloperOnJob(@PathParam("company") String company, @PathParam("developer") String developer, Contractor contractor) {
         final JavaDeveloper javaDeveloper = secondmentService.getCompany(company).getDeveloper(developer);
         final Job job = new Job();
-        secondmentService.getCompany(company).setEarnings(job.send(javaDeveloper, new Contractor(contractor)));
+        secondmentService.getCompany(company).setEarnings(job.send(javaDeveloper, contractor));
         
     }
 
