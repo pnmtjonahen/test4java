@@ -51,9 +51,9 @@
             <scope>test</scope>
         </dependency>       
         <dependency>
-            <groupId>org.jboss.arquillian.container</groupId>
-            <artifactId>arquillian-glassfish-embedded-3.1</artifactId>
-            <version>1.0.2</version>
+            <groupId>fish.payara.arquillian</groupId>
+            <artifactId>arquillian-payara-server-4-remote</artifactId>
+            <version>1.0.Beta2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -67,8 +67,6 @@
             <artifactId>arquillian-junit-container</artifactId>
             <scope>test</scope>
         </dependency>
-     
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
@@ -77,16 +75,15 @@
         </dependency>       
         <dependency>
             <groupId>com.github.tomakehurst</groupId>
-            <artifactId>wiremock</artifactId>
-            <version>2.11.0</version>
+            <artifactId>wiremock-standalone</artifactId>
+            <version>2.12.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.arquillian.extension</groupId>
-            <artifactId>arquillian-rest-client-impl-jersey</artifactId>
-            <version>1.0.0.Alpha4</version>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>2.9.0</version>
             <scope>test</scope>
-           
         </dependency>
         <dependency>
             <groupId>junit</groupId>
