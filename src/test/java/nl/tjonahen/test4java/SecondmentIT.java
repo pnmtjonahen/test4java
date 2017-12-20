@@ -57,7 +57,7 @@ public class SecondmentIT {
                 .withTransitivity()
                 .asFile();
         return ShrinkWrap.create(WebArchive.class)
-                .addClasses(ApplicationConfig.class, SecondmentBoundry.class, SecondmentService.class, Company.class, Contractor.class, JavaDeveloper.class, Job.class)
+                .addPackages(true, "nl.tjonahen.test4java")
                 .addAsWebInfResource(new File("src/main/webapp/WEB-INF/beans.xml"))
                 .addAsLibraries(files);
     }
