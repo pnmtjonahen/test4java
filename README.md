@@ -11,14 +11,23 @@ As a developer I want to test my code, using Test driven development style, so w
 This repository contains a number of branches, each branch contains a different aspect or implementation of a test definition or process.
 
 1. master
+
     This is the initial application where a developer uses unit test to test code
 2. wiremock
+
     Wiremock sample, using a junit test and wiremock as a generic stub
 3. cucumber
+
     Cucumber and wiremock sample
 4. javaee
+
     Cucumber, wiremock and arquillian to test javaee (CDI)
 5. restassured
-    Integration testing using Cucumber, wiremock, arquillian (remote and embedded) with restassured
-6. slides
+
+    Integration testing using restassured with wiremock and arquillian (remote and embedded)
+6. resteasy
+
+    Integration testing using resteasy(arquillian extention) with wiremock and arquillian (remote and embedded)  
+7. slides
+
     This branch contains the markdown slides, use scooch https://github.com/IvoNet/scooch to present these slides
