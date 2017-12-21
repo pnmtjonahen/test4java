@@ -68,10 +68,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.jayway.restassured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>2.9.0</version>
-            <scope>test</scope>
+            <groupId>org.jboss.arquillian.extension</groupId>
+            <artifactId>arquillian-rest-client-impl-jersey</artifactId>
+            <version>1.0.0.Alpha4</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
