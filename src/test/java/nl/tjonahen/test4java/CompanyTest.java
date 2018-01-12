@@ -42,5 +42,7 @@ public class CompanyTest {
         Company ordina = new Company(new JavaDeveloper("me"));
         ordina.send(new Contractor(BIG_COMPANY));
         
+        wiremock.verifyThat(WireMock.postRequestedFor(urlEqualTo("/"+BIG_COMPANY)));
+        
     }
 }
