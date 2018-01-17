@@ -27,7 +27,6 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.parsing.Parser;
 import java.io.File;
 import java.net.URL;
-import nl.tjonahen.test4java.config.ApplicationConfig;
 import org.hamcrest.Matchers;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
