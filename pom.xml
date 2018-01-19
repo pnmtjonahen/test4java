@@ -12,6 +12,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <version.org.jboss.arquillian>1.1.15.Final</version.org.jboss.arquillian>
+        
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -137,6 +138,17 @@
                 <dependency>
                     <groupId>fish.payara.arquillian</groupId>
                     <artifactId>arquillian-payara-server-4-remote</artifactId>
+                    <version>1.0.Beta2</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>managed</id>
+            <dependencies>
+                <dependency>
+                    <groupId>fish.payara.arquillian</groupId>
+                    <artifactId>arquillian-payara-server-4-managed</artifactId>
                     <version>1.0.Beta2</version>
                     <scope>test</scope>
                 </dependency>
