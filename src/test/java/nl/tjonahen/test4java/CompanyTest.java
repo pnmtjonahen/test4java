@@ -21,6 +21,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -30,6 +32,10 @@ import org.junit.Test;
 public class CompanyTest {
     private static final String BIG_COMPANY = "BigCompany";
 
+    
+    @Rule
+    public WireMockRule wiremockRule = new WireMockRule(8888);
+    
     @Test
     public void testSend() {
         WireMock wiremock = new WireMock(8888);

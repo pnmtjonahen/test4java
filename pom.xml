@@ -49,23 +49,6 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>uk.co.deliverymind</groupId>
-                <artifactId>wiremock-maven-plugin</artifactId>
-                <version>2.3.0</version>
-                <executions>
-                    <execution>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <dir>target/classes</dir>
-                            <params>--port=8888</params>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>   
     </build>
 </project>
