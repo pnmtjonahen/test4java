@@ -26,7 +26,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.arquillian.CukeSpace;
 import cucumber.runtime.arquillian.api.Features;
-import java.io.File;
 import javax.inject.Inject;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
