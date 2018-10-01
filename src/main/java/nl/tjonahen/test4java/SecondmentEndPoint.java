@@ -27,7 +27,7 @@ import javax.ws.rs.PathParam;
  * @author Philippe Tjon - A - Hen
  */
 @Path("secondment")
-public class SecondmentBoundry {
+public class SecondmentEndPoint {
 
     @Inject
     private SecondmentService secondmentService;
